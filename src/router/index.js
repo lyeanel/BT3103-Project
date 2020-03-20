@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+//import Chat from "@/views/Chat.vue";
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,24 @@ const routes = [
                 component: () => import('../views/Dashboard/Logs')
             }
         ]
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('../Login.vue')
+    },
+    {
+        path: '/chat',
+        name: 'Chat',
+        component: () => import('../Chat.vue'),
+        props: true,
+        beforeEnter: (to,from,next) => {
+            if(to.params.name){
+                next();
+            } else {
+                next({name: 'login'})
+            }
+        }
     }
 ]
 
