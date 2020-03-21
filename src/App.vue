@@ -14,7 +14,7 @@
             VuebaseLayout
         },
 
-        computed: {
+        computed: {  
             component() {
                 return VuebaseLayout
             }

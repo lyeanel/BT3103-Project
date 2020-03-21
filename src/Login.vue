@@ -9,18 +9,23 @@
                         <p v-if= "errorText" class= 'text-danger'>{{errorText}}</p>
                     </div>
                     <button type='submit' class='btn btn-primary'> Log in </button>
+                        
                 </form>
+                
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import database from '@/firebase/init';
 export default {
     name: 'login',
     data(){
         return{
-            name:"",
+            messages:{
+                name:""
+            },
             errorText: null
         }
     },
@@ -31,6 +36,14 @@ export default {
             } else {
                 this.errorText = 'Please enter a name first'
             }
+        },
+        addName:  function () {
+          //Save item to database
+          database.collection('messages').doc().set(this.messages);
+          console.log('Hi')
+
+          alert("I am in the DB .... :-) Item saved successfully")
+
         }
     }
 }

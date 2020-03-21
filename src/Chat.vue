@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import CreateMessage from '@/components/CreateMessage';
-import fb from '@/firebase/init';
+import CreateMessage from '@/components/CreateMessage.vue';
+import fb from '@/firebase/init.js';
 import moment from 'moment';
 
 export default {
@@ -74,7 +74,7 @@ export default {
     font-size: 1.2em;
 }
 
-.chat .time{
+.chat time{
     display: block;
     font-size:0.7em;
 }
