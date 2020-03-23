@@ -1,6 +1,7 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import firestore from 'firebase/firestore';
 
-const firebaseConfig = {
+const configOptions = {
     apiKey: "AIzaSyCgLVju_UBGx9ny3iZ1G5ZpkAn8rVLCFFY",
     authDomain: "bt3103-forum.firebaseapp.com",
     databaseURL: "https://bt3103-forum.firebaseio.com",
@@ -11,8 +12,8 @@ const firebaseConfig = {
     measurementId: "G-1EXGWCK77H"
   };
 
- const firebaseApp = firebase.initializeApp(firebaseConfig);
- firebaseApp.firestore().settings({timestampsInSnapshots: true})
- const db= firebase.firestore();
+const firebaseApp = firebase.initializeApp(configOptions);
 
- export default firebaseApp.firestore();
+const db= firebase.firestore();
+
+export default firebaseApp.firestore();

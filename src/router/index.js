@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 //import Chat from '../Chat.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
+        path: '/home',
         name: 'home',
-        component: () => import('../views/Home')
+        component: () => import('../views/Home'),
     },
     {
         path: '/dashboard',
@@ -33,27 +34,36 @@ const routes = [
         ]
     },
     {
-        path: '/login',
-        name: 'login',
-        component: () => import('../Login.vue')
-    },
-    {
         path: '/chat',
         name: 'Chat',
         component: () => import('../Chat.vue'),
+        // meta: { requiresAuth: true },
         props: true,
-        beforeEnter: (to,from,next) => {
-            if(to.params.name){
-                next();
-            } else {
-                next({name: 'login'})
-            }
-        }
+        // beforeEnter: (to,from,next) => {
+        //         next({name: 'Chat', params: {name: user.data.displayName}});
+        // }
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('../loginuser.vue'),
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: () => import('../Register.vue'),
+    },
+    {
+        path: '/',
+        name: 'landing',
+        component: () => import('../Landing.vue'),
     }
 ]
 
-export default new VueRouter({
+const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes
 })
+
+  export default router

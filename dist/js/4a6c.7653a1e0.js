@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["4a6c"],{"4a6c":function(t,e,n){"use strict";n.r(e);var c=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("v-card",{attrs:{color:"white"}},[n("v-card-text",[t._v("Indicators")])],1)},a=[],r={},o=r,s=n("2877"),i=Object(s["a"])(o,c,a,!1,null,null,null);i.options.__file="Indicators.vue";e["default"]=i.exports}}]);
-//# sourceMappingURL=4a6c.7653a1e0.js.map

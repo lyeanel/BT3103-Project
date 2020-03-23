@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app v-if="user.loggedIn">
         <v-navigation-drawer
                 width="250"
                 class="blue-grey darken-4"
@@ -34,7 +34,7 @@
             <v-tooltip right :disabled="!miniVariant">
                 <v-toolbar flat class="transparent" dense slot="activator">
                     <v-list class="pa-0" :class="{'list-border-bottom' : miniVariant}">
-                        <v-list-tile to="/" exact>
+                        <v-list-tile to="/home" exact>
                             <v-list-tile-action>
                                 <v-icon>home</v-icon>
                             </v-list-tile-action>
@@ -161,7 +161,7 @@
                             </v-avatar>
                         </v-list-tile-avatar>
                         <v-list-tile-content>
-                            <v-list-tile-title>John Doe</v-list-tile-title>
+                            <v-list-tile-title>{{user.data.displayName}}</v-list-tile-title>
                             <v-list-tile-sub-title>Administrator</v-list-tile-sub-title>
                         </v-list-tile-content>
                     </v-list-tile>
@@ -177,7 +177,7 @@
                     </v-list-tile>
                     <v-divider></v-divider>
 
-                    <v-list-tile key="lock_open" @click="">
+                    <v-list-tile key="lock_open" @click.prevent="signOut">
                         <v-list-tile-action>
                             <v-icon>lock_open</v-icon>
                         </v-list-tile-action>
@@ -229,11 +229,26 @@
             </v-list>
         </v-navigation-drawer>
     </v-app>
+    <v-app v-else>
+        <v-content>
+            <router-view/>
+        </v-content>
+    </v-app>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import firebase from "firebase";
+
     export default {
         name: 'VuebaseLayout',
+        
+        computed: {
+            // map `this.user` to `this.$store.getters.user`
+            ...mapGetters({
+            user: "user"
+            })
+        },
 
         data() {
             return {
@@ -247,9 +262,9 @@
                         link: '/dashboard/indicators'
                     },
                     {
-                        icon: 'event',
-                        title: 'Events',
-                        link: ''
+                        icon: 'chat',
+                        title: 'Chat',
+                        link: '/chat',
                     },
                     {
                         icon: 'comment',
@@ -326,7 +341,17 @@
                 this.searching = false
                 this.search = ''
                 document.querySelector('#search').blur()
-            }
+            },
+            signOut() {
+                firebase
+                    .auth()
+                    .signOut()
+                    .then(() => {
+                    this.$router.replace({
+                        name: "login"
+                    });
+                    });
+                }
         }
     }
 </script>

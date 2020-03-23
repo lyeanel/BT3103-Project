@@ -41,9 +41,7 @@ export default {
           //Save item to database
           database.collection('messages').doc().set(this.messages);
           console.log('Hi')
-
           alert("I am in the DB .... :-) Item saved successfully")
-
         }
     }
 }

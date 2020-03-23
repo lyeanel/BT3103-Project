@@ -26,7 +26,6 @@
 import CreateMessage from '@/components/CreateMessage.vue';
 import fb from '@/firebase/init.js';
 import moment from 'moment';
-
 export default {
     name: 'Chat',
     props: ['name'],
@@ -59,29 +58,23 @@ export default {
 </script>
 
 <style>
-
 .chat h2{
     font-size: 2.6em;
     margin-bottom: 0px;
 }
-
 .chat h5{
     margin-top: 0px;
     margin-bottom: 40px;
 }
-
 .chat span{
     font-size: 1.2em;
 }
-
 .chat time{
     display: block;
     font-size:0.7em;
 }
-
 .messages{
     max-height: 300px;
     overflow: auto;
 }
-
 </style>

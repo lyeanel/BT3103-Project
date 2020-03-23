@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["cde4"],{cde4:function(e,t,c){"use strict";c.r(t);var n=function(){var e=this,t=e.$createElement,c=e._self._c||t;return c("v-card",{attrs:{color:"white"}},[c("v-card-text",[e._v("Backup")])],1)},a=[],r={},u=r,l=c("2877"),o=Object(l["a"])(u,n,a,!1,null,null,null);o.options.__file="Backup.vue";t["default"]=o.exports}}]);
-//# sourceMappingURL=cde4.099f5759.js.map
