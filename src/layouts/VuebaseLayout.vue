@@ -262,6 +262,11 @@ import firebase from "firebase";
                         link: '/dashboard/indicators'
                     },
                     {
+                        icon: 'search',
+                        title: 'Search',
+                        link: '/search'
+                    },
+                    {
                         icon: 'chat',
                         title: 'Chat',
                         link: '/chat',
