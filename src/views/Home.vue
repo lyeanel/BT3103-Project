@@ -37,7 +37,16 @@
                               Hourly Rate: $ {{ rate }}/hr <br />
                               Number of Past Tutees: {{ paststudents }}<br />
                               Currently tutoring: {{ currentstudents }}<br />
-                              Rating: {{ rating }} <br />
+                              Rating:<br />
+                              <star-rating
+                                read-only
+                                v-model="rating"
+                                :show-rating="false"
+                                rounded-corners
+                                :star-size="45"
+                                inline
+                              ></star-rating>
+                              <br />
                             </body>
                             <div class="review">
                               click here to see reviews written by Tan's past
@@ -69,7 +78,7 @@ export default {
       rate: 10,
       paststudents: 25,
       currentstudents: 5,
-      rating: 'star star star',
+      rating: 3,
       links: [
         {
           id: '1',
