@@ -19,7 +19,7 @@
                       class="profile"
                     >
                       <div class="top-card">
-                        <v-avatar size="80" class="avatar"
+                        <v-avatar size="100" class="avatar"
                           ><img
                             src="https://i.pinimg.com/originals/57/3e/9e/573e9e53ee78e2a88c32d53bd8a5bfd2.jpg"
                             alt="dog"
@@ -114,8 +114,6 @@ h3 {
   margin-top: 2.5rem;
 }
 .avatar {
-  height: 8rem;
-  width: 8rem;
   margin: -3.5rem;
 }
 .top-card {
