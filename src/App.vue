@@ -1,23 +1,22 @@
 <template>
-    <component :is="component">
-        <slot/>
-    </component>
+  <component :is="component">
+    <slot />
+  </component>
 </template>
 
 <script>
-    import VuebaseLayout from './layouts/VuebaseLayout'
+import VuebaseLayout from "./layouts/VuebaseLayout";
+export default {
+  name: "App",
 
-    export default {
-        name: 'App',
+  components: {
+    VuebaseLayout
+  },
 
-        components: {
-            VuebaseLayout
-        },
-
-        computed: {  
-            component() {
-                return VuebaseLayout
-            }
-        }
+  computed: {
+    component() {
+      return VuebaseLayout;
     }
+  }
+};
 </script>
